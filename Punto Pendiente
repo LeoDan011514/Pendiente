@@ -1,0 +1,44 @@
+let m=0
+let b=0
+let x0
+let y0
+let x1
+let y1
+let x
+let y
+
+function setup() {
+	createCanvas(windowWidth,windowHeight);
+}
+
+function draw()
+{
+	pintar(0,0,windowWidth,windowHeight)    /// puntosutilizados para dibujar una recta
+	pintar(0,windowHeight,windowWidth,0)
+	pintar(0,windowHeight/2,windowWidth,windowHeight/2)
+	pintar(windowWidth/2,0,windowWidth/2,windowHeight)
+}
+
+function pintar(x1,y1,x2,y2){ // se le ingresan las coordenadas del punto inicial y del punto final 
+
+	m=(y2 - y1) / (x2 - x1) // es la pendiente, que es igual a las coordenadas del punto
+	b= y1 - (m*x1)
+
+	x=x1
+	if (x1 < x2){
+		while(x<=x2){
+			x++
+			y=m*x+b
+			console.log("entro hori")
+			point(x, y);
+		}
+	}else{
+		if(y1<y2 && x1 === x2){
+			while(y1<=y2){
+			y1++
+			console.log("entro vertical")
+			point(x, y1);
+		}
+		}
+	}
+}
